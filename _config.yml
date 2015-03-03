@@ -1,7 +1,7 @@
 # Site settings
 title: "Translation Bootstrap"
 description: "Proect is aimed to boostrap localization process for programming products"
-baseurl: "/Translation-Bootstrap/" # the subpath of your site, e.g. /blog/
+baseurl: "/Translation-Bootstrap" # the subpath of your site, e.g. /blog/
 url: "http://famer.github.io/" # the base hostname & protocol for your site
 
 # Build settings
