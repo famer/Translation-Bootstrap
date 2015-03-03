@@ -1,5 +1,5 @@
 ---
-title: "Motivation of translation bootstrap"
+title: "Motivation"
 categories: projects
 tags: ["translations", "mobile development"]
 published: true
