@@ -3,6 +3,8 @@ title: "Motivation"
 categories: projects
 tags: ["translations", "mobile development"]
 published: true
+layout: page
+permalink: /motivation/
 ---
 
 It's ususal thing when you develop application nevermind mobile or web and want to make it available for more people around the world.
