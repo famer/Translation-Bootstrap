@@ -1,7 +1,5 @@
 ---
-title: "Motivation"
-layout: page
-permalink: /motivation/
+layout: default
 ---
 
 It's ususal thing when you develop application nevermind mobile or web and want to make it available for more people around the world.

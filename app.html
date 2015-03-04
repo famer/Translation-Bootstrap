@@ -1,0 +1,38 @@
+---
+title: App
+layout: app
+---
+{% raw %}		
+	<div ng-controller="TranslationListCtrl">
+		Search for translation:
+		<form onsubmit="return 0">
+			<input id="q" type="text" name="query" ng-model="query" />
+			<a href="#" ng-click="query = ''">x</a>
+			<input class="btn btn-lg btn-default" type="submit" value="search" />
+		</form>
+		
+		<span og:context="Translation found number">{{(translations | filter:query).length}} of {{translations.length}} found</span>
+		
+		<ul class="row">
+			
+		    <li class="col-md-4" ng-repeat="translation in translations | filter:query" ng-bind-html="translation | highlight:query">
+		      <span ng-bind-html="translation.name | highlight:query">{{translation.name | highlight:query}}</span>
+		      <p ng-bind-html="translation.snippet | highlight:query">{{translation.snippet | highlight:query}}</p>
+		
+				<p ng-repeat="(lang, tr) in translation.list">{{lang}}: <span ng-bind-html="tr | highlight:query"></span></p>
+		    </li>
+		  </ul>
+		<style>
+		.ui-match { 
+			background: yellow;
+			font-weight: bold; }
+		</style>
+		</div>
+	
+	
+
+	<script>
+	
+	document.getElementById('q').focus()
+	</script>
+{% endraw %}
