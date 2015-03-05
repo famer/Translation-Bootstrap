@@ -3,25 +3,44 @@ title: App
 layout: app
 ---
 {% raw %}		
+<span>Statistics:
+	There are <span class="badge">42</span> complete texts in <span class="badge">7</span> languages and <span class="badge">62</span> partly translated in <span class="badge">10</span> different languages
+	</span>
+	
+	
 	<div ng-controller="TranslationListCtrl">
-		Search for translation:
-		<form onsubmit="return 0">
-			<input id="q" type="text" name="query" ng-model="query" />
-			<a href="#" ng-click="query = ''">x</a>
-			<input class="btn btn-lg btn-default" type="submit" value="search" />
-		</form>
+		<h3>Search for translation:</h3>
+		
+			
+			<div class="input-group">
+			  <input type="text" class="form-control" placeholder="Search" ng-model="query">
+			<a href="#" ng-click="query = ''"  class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></a>
+			
+			<span class="input-group-btn">
+				
+			        <button class="btn btn-default" type="button">Search</button>
+			
+			 </span>
+			</div>
+		<span>Have a try: <a href="#" ng-click="query = 'hello'">hello</a>, <a href="#" ng-click="query = 'cancel'">cancel</a>, <a href="#">geolocation permissions</a> or <a href="#">#dismiss</a> or <a href="#">settings</a>.</span><br />
 		
 		<span og:context="Translation found number">{{(translations | filter:query).length}} of {{translations.length}} found</span>
-		
-		<ul class="row">
+		<br /><br />
+		<div class="row">
 			
-		    <li class="col-md-4" ng-repeat="translation in translations | filter:query" ng-bind-html="translation | highlight:query">
-		      <span ng-bind-html="translation.name | highlight:query">{{translation.name | highlight:query}}</span>
+		    <div class="col-sm-6 col-md-4" ng-repeat="translation in translations | filter:query" ng-bind-html="translation | highlight:query">
+			<div class=" panel panel-default">
+		      <div class="panel-heading"><h3 class="panel-title" ng-bind-html="translation.name | highlight:query">{{translation.name | highlight:query}}</h3></div>
+		<div class="panel-body">
+		
 		      <p ng-bind-html="translation.snippet | highlight:query">{{translation.snippet | highlight:query}}</p>
 		
 				<p ng-repeat="(lang, tr) in translation.list">{{lang}}: <span ng-bind-html="tr | highlight:query"></span></p>
-		    </li>
-		  </ul>
+					<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTkyIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDE5MiAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTkyIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjcwLjY4NzUiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0O2RvbWluYW50LWJhc2VsaW5lOmNlbnRyYWwiPjE5MngyMDA8L3RleHQ+PC9nPjwvc3ZnPg==" />
+				</div>
+		    </div>
+		</div>
+		  </div>
 		<style>
 		.ui-match { 
 			background: yellow;

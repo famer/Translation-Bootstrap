@@ -28,9 +28,9 @@
 	        </div>
 	        <div id="navbar" class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
-				{% for page in site.pages %}
-		          {% if page.title %}
-		          <li><a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
+				{% for p in site.pages %}
+		          {% if p.title %}
+		          <li {%if p.title == page.title %}class="active"{% endif %}><a class="page-link" href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a></li>
 		          {% endif %}
 		        {% endfor %}
 	            
